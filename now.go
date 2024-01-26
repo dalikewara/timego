@@ -2,18 +2,12 @@ package timego
 
 import "time"
 
+// Now gets time now
 func Now() time.Time {
 	return time.Now()
 }
 
+// NowUTC gets time now in UTC
 func NowUTC() time.Time {
-	return time.Now().UTC()
-}
-
-func NowAddDays(days int) time.Time {
-	return Now().AddDate(0, 0, days)
-}
-
-func NowUTCAddDays(days int) time.Time {
-	return NowUTC().AddDate(0, 0, days)
+	return Now().UTC()
 }

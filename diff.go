@@ -2,16 +2,19 @@ package timego
 
 import "time"
 
-func Diff(currentTime time.Time, oldTime time.Time) time.Duration {
-	ct, _ := FromString(ToString(currentTime, LayoutCustom26), LayoutCustom26)
+// Diff gets the different time between old time and current time in time.Duration
+func Diff(oldTime time.Time, currentTime time.Time) time.Duration {
 	ot, _ := FromString(ToString(oldTime, LayoutCustom26), LayoutCustom26)
+	ct, _ := FromString(ToString(currentTime, LayoutCustom26), LayoutCustom26)
 	return ct.Sub(ot)
 }
 
-func DiffInDays(currentTime time.Time, oldTime time.Time) int {
-	return int(Diff(currentTime, oldTime).Hours()) / 24
+// DiffInDays gets the different time between old time and current time in days
+func DiffInDays(oldTime time.Time, currentTime time.Time) int {
+	return int(Diff(oldTime, currentTime).Hours()) / 24
 }
 
-func DiffTotalSeconds(currentTime time.Time, oldTime time.Time) float64 {
-	return Diff(currentTime, oldTime).Seconds()
+// DiffInSeconds gets the different time between old time and current time in seconds
+func DiffInSeconds(oldTime time.Time, currentTime time.Time) float64 {
+	return Diff(oldTime, currentTime).Seconds()
 }
